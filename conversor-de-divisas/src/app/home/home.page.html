@@ -1,0 +1,103 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="bg-gradient-to-r from-emerald-600 to-teal-600">
+    <ion-title class="text-white font-bold text-xl">
+      DivisApp 18001167
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"
+  class="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+  <div class="min-h-full flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+      <!-- Card Principal -->
+      <ion-card
+        class="shadow-2xl rounded-3xl overflow-hidden border-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm">
+        <ion-card-header class="bg-gradient-to-r from-emerald-500 to-teal-500 pb-8 pt-6">
+          <div class="flex items-center justify-center mb-2">
+            <ion-icon name="cash-outline" class="text-white text-5xl"></ion-icon>
+          </div>
+          <ion-card-title class="text-center text-white font-bold text-2xl">
+            Conversor de Divisas
+          </ion-card-title>
+          <p class="text-center text-white font-thin text-xl">
+            DivisApp 18001167
+          </p>
+          <p class="text-center text-emerald-50 text-sm mt-2">
+            Quetzales (GTQ) → Dólares (USD)
+          </p>
+        </ion-card-header>
+
+        <ion-card-content class="p-6">
+          <!-- Tasa de Cambio -->
+          <div
+            class="mt-4 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-4 mb-6 border border-amber-200 dark:border-amber-700">
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-amber-700 dark:text-amber-400 font-semibold">Tasa de cambio:</span>
+              <span class="text-amber-900 dark:text-amber-300 font-bold text-lg">Q 8.00 = $ 1.00</span>
+            </div>
+          </div>
+
+          <!-- Input Quetzales -->
+          <div class="mb-6">
+            <ion-item lines="none" class="rounded-xl bg-slate-50 dark:bg-slate-700 shadow-inner mb-2">
+              <ion-label position="stacked" class="text-slate-700 dark:text-slate-300 font-semibold mb-2">
+                Cantidad en Quetzales (GTQ)
+              </ion-label>
+              <ion-input type="number" [(ngModel)]="quetzales" placeholder="0.00"
+                class="text-2xl font-bold text-emerald-600 dark:text-emerald-400" (ionInput)="convertir()"></ion-input>
+            </ion-item>
+          </div>
+
+          <!-- Icono de Conversión -->
+          <div class="flex justify-center mb-6">
+            <div
+              class="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full p-3 shadow-lg transform hover:scale-110 transition-transform duration-300">
+              <ion-icon name="swap-horizontal" class="text-white text-3xl"></ion-icon>
+            </div>
+          </div>
+
+          <!-- Resultado en Dólares -->
+          <div class="mb-6">
+            <ion-item lines="none"
+              class="rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 shadow-md border-2 border-emerald-200 dark:border-emerald-700">
+              <ion-label position="stacked" class="text-slate-700 dark:text-slate-300 font-semibold mb-2">
+                Equivalente en Dólares (USD)
+              </ion-label>
+              <div class="text-3xl font-bold text-emerald-600 dark:text-emerald-400 py-2">
+                $ {{ dolares | number:'1.2-2' }}
+              </div>
+            </ion-item>
+          </div>
+
+          <!-- Botones -->
+          <div class="flex gap-3">
+            <ion-button expand="block" (click)="convertir()"
+              class="flex-1 h-12 font-bold text-base shadow-lg hover:shadow-xl transition-shadow duration-300"
+              style="--background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%); --border-radius: 12px;">
+              Convertir
+            </ion-button>
+            <ion-button expand="block" (click)="limpiar()" fill="outline" class="flex-1 h-12 font-bold text-base"
+              style="--border-radius: 12px; --border-width: 2px;" color="medium">
+              Limpiar
+            </ion-button>
+          </div>
+
+          <!-- Info adicional -->
+          <div class="mt-6 text-center">
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+              💡 La conversión se actualiza automáticamente
+            </p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Footer Info -->
+      <div class="mt-6 text-center">
+        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">
+          Desarrollado por Manuel Santos 18001167
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>
